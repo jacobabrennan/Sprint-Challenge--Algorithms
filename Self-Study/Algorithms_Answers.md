@@ -6,10 +6,13 @@ a) O(n)
 Factoring out n*n from the loop condition, we see that the loop must run 'n'
 number of times.
 
-b) O(n*(log(n)**2)*10) => O(n log2(n))
-Nesting loops means multiplied complexity. These loops have the complexities of
-O(n), O(log n), O(log n), and O(10). Multiplying them and dropping the constant
-gives: n*log(n)*log(n), or O(n log2(n))
+b) O(n^3 * 10) => O(n^3)
+Nesting loops means multiplied complexity. The final loop is a trival case of
+looping over ten indices, so we can drop this constant factor from our Big-O
+notation. The other inner loops are of the form "j = i+1", which will perform
+half has many operations when nested, leading to a complexity of O(n/2). This
+can be considered a constant factor of 1/2, and can be dropped from our Big-O
+notation. The result is three linear factors, or a complexity of O(n^3).
 
 c) O(n)
 Each iteration of bunnyEars only ever calls bunnieEars once with a decreasing
